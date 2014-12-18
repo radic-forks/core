@@ -1,4 +1,4 @@
 core
 ====
 
-Core Codex package for Laravel.
+Core Codex package for Laravel 4.2.
