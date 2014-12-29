@@ -1,6 +1,7 @@
 <?php
 namespace Codexproject\Core\Repositories;
 
+use App;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
 use Codexproject\Core\CacheTrait;

@@ -31,7 +31,7 @@ class CodexServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		//
+		// 
 	}
 	
 	/**
@@ -46,8 +46,9 @@ class CodexServiceProvider extends ServiceProvider
 
 	private function registerBindings()
 	{
-		$storageDriver = $this->app['config']->get('codex::driver');
+		$storageDriver = ucfirst($this->app['config']->get('codex::driver'));
 
-		$this->app->bind('CodexRepositoryInterface', '\Codexproject\Core\Repository\\'.$storageDriver);
+		$this->app->bind('\Codexproject\Core\Repositories\CodexRepositoryInterface',
+			'\Codexproject\Core\Repositories\CodexRepository'.$storageDriver);
 	}
 }

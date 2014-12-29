@@ -1,10 +1,12 @@
 <?php
 namespace Codexproject\Core\Repositories;
 
+use App;
+use DateTime;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
 
-abstract class AbstractCodexRepository implements InterfaceRepo
+abstract class AbstractCodexRepository implements CodexRepositoryInterface
 {
 	/**
 	 * The config implementation.
@@ -59,9 +61,9 @@ abstract class AbstractCodexRepository implements InterfaceRepo
 			}
 		} elseif (count($manuals) === 1) {
 			return strval($manuals[0]);
-		} else {
-			return null;
 		}
+
+		return null;
 	}
 
 	/**
@@ -117,7 +119,7 @@ abstract class AbstractCodexRepository implements InterfaceRepo
 	 */
 	public function getDirectories($path)
 	{
-		if ( ! $this->files->exists($path)) {
+		if ($this->files->exists($path) === false) {
 			App::abort(404);
 		}
 
@@ -130,7 +132,7 @@ abstract class AbstractCodexRepository implements InterfaceRepo
 				$folder    = explode('/', $dir);
 				$folders[] = end($folder);
 			}
-		}		
+		}
 
 		return $folders;
 	}

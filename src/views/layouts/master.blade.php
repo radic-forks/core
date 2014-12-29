@@ -8,26 +8,26 @@
 		<link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
 
 		@if (isset($currentManual))
-			<title>{{ $siteName }} - {{ $currentManual }} {{ $currentVersion }}</title>
+			<title>Codex - {{ $currentManual }} {{ $currentVersion }}</title>
 		@else
-			<title>{{ $siteName }}</title>
+			<title>Codex</title>
 		@endif
 
 		<!-- CSS -->
-		<link rel="stylesheet" href="{{ asset('/assets/css/bootswatch/flatly.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('/assets/css/prettify/freshcut.css') }}">
-		<link rel="stylesheet" href="{{ asset('/assets/css/codex.css') }}">
+		<link rel="stylesheet" href="{{ asset('/packages/codexproject/core/css/bootswatch/flatly.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('/packages/codexproject/core/css/prettify/freshcut.css') }}">
+		<link rel="stylesheet" href="{{ asset('/packages/codexproject/core/css/codex.css') }}">
 	</head>
 	<body>
-		@include('condex::partials.analytics_tracking')
+		@include('codex::partials.analytics_tracking')
 		@include('codex::partials.navbar')
 
 		@yield('content')
 
 		<!-- Javascript -->
-		<script src="{{ asset('/assets/js/jquery-2.1.1.min.js') }}"></script>
-		<script src="{{ asset('/assets/js/bootstrap.min.js') }}"></script>
-		<script src="{{ asset('/assets/js/prettify/run_prettify.js') }}"></script>
-		<script src="{{ asset('/assets/js/codex.js') }}"></script>
+		<script src="{{ asset('/packages/codexproject/core/js/jquery-2.1.1.min.js') }}"></script>
+		<script src="{{ asset('/packages/codexproject/core/js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('/packages/codexproject/core/js/prettify/run_prettify.js') }}"></script>
+		<script src="{{ asset('/packages/codexproject/core/js/codex.js') }}"></script>
 	</body>
 </html>

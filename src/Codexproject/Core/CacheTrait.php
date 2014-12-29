@@ -1,6 +1,7 @@
 <?php
 namespace Codexproject\Core;
 
+use App;
 use Illuminate\Cache\Repository as Cache;
 
 trait CacheTrait

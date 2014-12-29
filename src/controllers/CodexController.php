@@ -1,6 +1,6 @@
 <?php
 
-use \Codexproject\Core\Repository\InterfaceRepo;
+use \Codexproject\Core\Repositories\CodexRepositoryInterface;
 
 class CodexController extends BaseController
 {
@@ -40,8 +40,6 @@ class CodexController extends BaseController
      */
 	public function __construct(CodexRepositoryInterface $codex)
 	{
-		parent::__construct();
-
 		$this->codex = $codex;
 
 		$this->defaultManual  = $this->codex->getDefaultManual();
