@@ -1,12 +1,12 @@
 <?php
-namespace Codexproject\Core\Repository;
+namespace Codexproject\Core\Repositories;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
 use Codexproject\Core\CacheTrait;
 use Codexproject\Core\Markdown;
 
-class Flat extends AbstractRepo
+class CodexRepositoryFlat extends AbstractCodexRepository
 {
 	use CacheTrait;
 

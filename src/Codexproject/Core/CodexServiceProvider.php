@@ -3,7 +3,7 @@ namespace Codexproject\Core;
 
 use Illuminate\Support\ServiceProvider;
 
-class CoreServiceProvider extends ServiceProvider
+class CodexServiceProvider extends ServiceProvider
 {
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -11,16 +11,6 @@ class CoreServiceProvider extends ServiceProvider
 	 * @var bool
 	 */
 	protected $defer = false;
-
-	/**
-	 * Register the service provider.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		// 
-	}
 
 	public function boot()
 	{
@@ -33,6 +23,16 @@ class CoreServiceProvider extends ServiceProvider
 
 		$this->registerBindings();
 	}
+
+	/**
+	 * Register the service provider.
+	 *
+	 * @return void
+	 */
+	public function register()
+	{
+		//
+	}
 	
 	/**
 	 * Get the services provided by the provider.
@@ -41,7 +41,7 @@ class CoreServiceProvider extends ServiceProvider
 	 */
 	public function provides()
 	{
-		return array();
+		return array('codex');
 	}
 
 	private function registerBindings()

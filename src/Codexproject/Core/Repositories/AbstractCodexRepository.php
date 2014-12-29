@@ -1,10 +1,10 @@
 <?php
-namespace Codexproject\Core\Repository;
+namespace Codexproject\Core\Repositories;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
 
-abstract class AbstractRepo implements InterfaceRepo
+abstract class AbstractCodexRepository implements InterfaceRepo
 {
 	/**
 	 * The config implementation.

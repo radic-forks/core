@@ -1,7 +1,7 @@
 <?php
-namespace Codexproject\Core\Repository;
+namespace Codexproject\Core\Repositories;
 
-interface InterfaceRepo
+interface CodexRepositoryInterface
 {
 	/**
 	 * Get manual's table of contents file, if it exists.

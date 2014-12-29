@@ -1,5 +1,5 @@
 <?php
-namespace Codexproject\Core\Repository;
+namespace Codexproject\Core\Repositories;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Cache\Repository as Cache;
@@ -8,7 +8,7 @@ use PHPGit\Git as GitClient;
 use Codexproject\Core\CacheTrait;
 use Codexproject\Core\Markdown;
 
-class Git extends AbstractRepo
+class CodexRepositoryGit extends AbstractCodexRepository
 {
 	use CacheTrait;
 
