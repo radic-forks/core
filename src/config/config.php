@@ -81,7 +81,7 @@ return array(
     |
     */
 
-    'modified_timestamp' => 'l, F d, Y'
+    'modified_timestamp' => 'l, F d, Y',
 
     /*
     |--------------------------------------------------------------------------
@@ -94,6 +94,6 @@ return array(
     |
     */
 
-    'use_routes' => true,
+    'use_routes' => true
 
 );
