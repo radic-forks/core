@@ -22,7 +22,13 @@
 		@include('codex::partials.analytics_tracking')
 		@include('codex::partials.navbar')
 
-		@yield('content')
+		<div class="row-offcanvas row-offcanvas-left">
+			@include('codex::partials.sidebar')
+
+			<div id="main">
+				@yield('content')
+			</div>
+		</div>
 
 		<!-- Javascript -->
 		<script src="{{ asset('/packages/codexproject/core/js/jquery-2.1.1.min.js') }}"></script>
