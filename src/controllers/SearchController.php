@@ -1,5 +1,7 @@
 <?php
 
+use \Codexproject\Core\Repositories\CodexRepositoryInterface;
+
 class SearchController extends BaseController
 {
 	/**
@@ -16,10 +18,8 @@ class SearchController extends BaseController
      * @return \SearchController
      */
 	public function __construct(CodexRepositoryInterface $codex)
-	{
+	{		
 		$this->codex = $codex;
-		
-		parent::__construct();
 	}
 
 	public function show($manual, $version)

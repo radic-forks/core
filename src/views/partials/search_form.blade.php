@@ -1,5 +1,5 @@
 {{ Form::open([
-	'url'    => 'search/'.$currentManual.'/'.$currentVersion,
+	'url'    => Config::get('codex::route_base').'/search/'.$currentManual.'/'.$currentVersion,
 	'method' => 'GET',
 	'class'  => 'navbar-form pull-right',
 	'role'   => 'search'

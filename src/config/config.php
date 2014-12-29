@@ -85,15 +85,14 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Use Package Routes
+    | Route Base
     |--------------------------------------------------------------------------
     |
-    | You may disable the use of Codex's packaged routes if you wish to
-    | customize the routes to your documentation. It is suggested to use the
-    | packaged routes as reference for your own.
-    |
+    | You may define a base route for your Codex documentation here. By default
+    | it is set to "codex", but you may leave this empty if you wish to use
+    | Codex as a stand alone application.
     */
 
-    'use_routes' => true
+    'route_base' => 'codex'
 
 );

@@ -138,13 +138,15 @@ class CodexRepositoryGit extends AbstractCodexRepository
 
 		if ( ! empty($needle)) {
 			foreach ($files as $file) {
-				$haystack = file_get_contents($file);
-				$filePath = $manual.'/'.$version.(string) $file;
+				$haystack  = file_get_contents($file);
+				$filePath  = $manual.'/'.$version.(string) $file;
+				$fileUrl   = '/'.$this->config->get('codex::route_base');
+				$fileUrl  .= str_replace([$directory, '.md'], '', $filePath);
 
 				if (strpos(strtolower($haystack), strtolower($needle)) !== false) {
 					$results[] = [
 						'title' => $this->getPageTitle((string)$file),
-						'url'   => str_replace([$directory, '.md'], '', $filePath),
+						'url'   => $fileUrl,
 					];
 				}
 			}

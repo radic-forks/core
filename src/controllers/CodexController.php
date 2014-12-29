@@ -45,7 +45,7 @@ class CodexController extends BaseController
 		$this->defaultManual  = $this->codex->getDefaultManual();
 		$this->defaultVersion = $this->codex->getDefaultVersion($this->defaultManual);
 
-		$this->rootUrl = $this->defaultManual.'/'.$this->defaultVersion;
+		$this->rootUrl = Config::get('codex::route_base').'/'.$this->defaultManual.'/'.$this->defaultVersion;
 	}
 
 	/**
