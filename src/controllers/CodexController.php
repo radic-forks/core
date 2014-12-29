@@ -40,14 +40,14 @@ class CodexController extends BaseController
      */
 	public function __construct(CodexRepositoryInterface $codex)
 	{
+		parent::__construct();
+
 		$this->codex = $codex;
 
 		$this->defaultManual  = $this->codex->getDefaultManual();
 		$this->defaultVersion = $this->codex->getDefaultVersion($this->defaultManual);
 
 		$this->rootUrl = $this->defaultManual.'/'.$this->defaultVersion;
-
-		parent::__construct();
 	}
 
 	/**

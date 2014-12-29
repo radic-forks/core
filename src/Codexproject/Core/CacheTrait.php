@@ -1,4 +1,5 @@
-<?php namespace Codexproject\Core;
+<?php
+namespace Codexproject\Core;
 
 use Illuminate\Cache\Repository as Cache;
 
@@ -11,15 +12,14 @@ trait CacheTrait
 	 */
 	protected $cache;
 
-    /**
-     * Create a new CacheTrait instance.
-     *
-     * @param  Cache $cache
-     * @return \Codexproject\Core\CacheTrait
-     */
+	/**
+	 * Create a new CacheTrait instance.
+	 *
+	 * @param Cache $cache
+	 */
 	public function __construct(Cache $cache)
 	{
-		$this->cache  = $cache;
+		$this->cache = $cache;
 	}
 
 	/**
@@ -30,14 +30,14 @@ trait CacheTrait
 	 * @param  int    $time
 	 * @return mixed
 	 */
-    private function cached($key, $value, $time = 5)
-    {
-        if (App::environment('local') === false) {
-            return $this->cache->remember($key, $time, function() use ($value) {
-                return $value;
-            });
-        } else {
-            return $value;
-        }
-    }
+	private function cached($key, $value, $time = 5)
+	{
+		if (App::environment('local') === false) {
+			return $this->cache->remember($key, $time, function() use ($value) {
+				return $value;
+			});
+		}
+
+		return $value;
+	}
 }

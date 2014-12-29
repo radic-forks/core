@@ -1,4 +1,5 @@
-<?php namespace Codexproject\Core;
+<?php
+namespace Codexproject\Core;
 
 use Parsedown;
 

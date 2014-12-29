@@ -1,4 +1,5 @@
-<?php namespace Codexproject\Core\Repository;
+<?php
+namespace Codexproject\Core\Repository;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
@@ -113,5 +114,4 @@ class Flat extends AbstractRepo
 
 		return $results;
 	}
-
 }

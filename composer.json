@@ -1,7 +1,7 @@
 {
     "name": "codexproject/core",
     "description": "Core components of Codex, a Laravel powered Markdown documentation application.",
-    "keywords": ["framework", "laravel"],
+    "keywords": ["codex", "laravel", "markdown", "documentation"],
     "license": "MIT",
     "require": {
         "laravel/framework": "~4.2",

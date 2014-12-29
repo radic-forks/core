@@ -1,4 +1,5 @@
-<?php namespace Codexproject\Core\Repository;
+<?php
+namespace Codexproject\Core\Repository;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Cache\Repository as Cache;
@@ -72,9 +73,9 @@ class Git extends AbstractRepo
 		if ($this->files->exists($tocFile)) {
 			return $this->cached("$manual.$version.toc",
 				Markdown::parse($this->files->get($tocFile), $manual.'/'.$version));
-		} else {
-			return null;
 		}
+
+		return null;
 	}
 
 	/**
@@ -94,9 +95,9 @@ class Git extends AbstractRepo
 		if ($this->files->exists($pageFile)) {
 			return $this->cached("$manual.$version.$page",
 				Markdown::parse($this->files->get($pageFile), $manual.'/'.$version.'/'.dirname($page)));
-		} else {
-			App::abort(404);
 		}
+
+		App::abort(404);
 	}
 
 	/**
@@ -170,9 +171,9 @@ class Git extends AbstractRepo
 			$timestamp = DateTime::createFromFormat('U', filemtime($page));
 
 			return $timestamp->format($this->config->get('codex::modified_timestamp'));
-		} else {
-			return false;
 		}
+		
+		return false;
 	}
 
 	/**

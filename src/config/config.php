@@ -83,4 +83,17 @@ return array(
 
     'modified_timestamp' => 'l, F d, Y'
 
+    /*
+    |--------------------------------------------------------------------------
+    | Use Package Routes
+    |--------------------------------------------------------------------------
+    |
+    | You may disable the use of Codex's packaged routes if you wish to
+    | customize the routes to your documentation. It is suggested to use the
+    | packaged routes as reference for your own.
+    |
+    */
+
+    'use_routes' => true,
+
 );

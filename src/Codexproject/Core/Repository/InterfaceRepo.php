@@ -1,4 +1,5 @@
-<?php namespace Codexproject\Core\Repository;
+<?php
+namespace Codexproject\Core\Repository;
 
 interface InterfaceRepo
 {

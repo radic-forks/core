@@ -1,4 +1,5 @@
-<?php namespace Codexproject\Core\Repository;
+<?php
+namespace Codexproject\Core\Repository;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
@@ -124,14 +125,12 @@ abstract class AbstractRepo implements InterfaceRepo
 		$folders     = [];
 
 		if (count($directories) > 0) {
-
-		}
-
-		foreach ($directories as $dir) {
-			$dir       = str_replace('\\', '/', $dir);
-			$folder    = explode('/', $dir);
-			$folders[] = end($folder);
-		}
+			foreach ($directories as $dir) {
+				$dir       = str_replace('\\', '/', $dir);
+				$folder    = explode('/', $dir);
+				$folders[] = end($folder);
+			}
+		}		
 
 		return $folders;
 	}
@@ -169,8 +168,8 @@ abstract class AbstractRepo implements InterfaceRepo
 			$timestamp = DateTime::createFromFormat('U', filemtime($page));
 
 			return $timestamp->format($this->config->get('codex::modified_timestamp'));
-		} else {
-			return false;
 		}
+
+		return false;
 	}
 }

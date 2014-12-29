@@ -1,9 +1,10 @@
-<?php namespace Codexproject\Core;
+<?php
+namespace Codexproject\Core;
 
 use Illuminate\Support\ServiceProvider;
 
-class CoreServiceProvider extends ServiceProvider {
-
+class CoreServiceProvider extends ServiceProvider
+{
 	/**
 	 * Indicates if loading of the provider is deferred.
 	 *
@@ -27,9 +28,12 @@ class CoreServiceProvider extends ServiceProvider {
     {
         $this->package('codexproject/core', 'codex');
 
-        // include the routes
-        include __DIR__ . '../../routes.php';
+        // Include the routes file
+        if ($this->app['config']->get('codex::use_routes') === true) {
+        	include __DIR__.'../../routes.php';
+        }        
     }
+    
 	/**
 	 * Get the services provided by the provider.
 	 *
@@ -39,5 +43,4 @@ class CoreServiceProvider extends ServiceProvider {
 	{
 		return array();
 	}
-
 }
