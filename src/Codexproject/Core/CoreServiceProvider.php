@@ -19,21 +19,21 @@ class CoreServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-        $storageDriver = $this->app['config']->get('codex::driver');
-
-        $this->app->bind('CodexRepositoryInterface', '\Codexproject\Core\Repository\\'.$storageDriver);
+		// 
 	}
 
-    public function boot()
-    {
-        $this->package('codexproject/core', 'codex');
+	public function boot()
+	{
+		$this->package('codexproject/core', 'codex');
 
-        // Include the routes file
-        if ($this->app['config']->get('codex::use_routes') === true) {
-        	include __DIR__.'../../routes.php';
-        }        
-    }
-    
+		// Include the routes file
+		if ($this->app['config']->get('codex::use_routes') === true) {
+			include __DIR__.'../../routes.php';
+		}
+
+		$this->registerBindings();
+	}
+	
 	/**
 	 * Get the services provided by the provider.
 	 *
@@ -42,5 +42,12 @@ class CoreServiceProvider extends ServiceProvider
 	public function provides()
 	{
 		return array();
+	}
+
+	private function registerBindings()
+	{
+		$storageDriver = $this->app['config']->get('codex::driver');
+
+		$this->app->bind('CodexRepositoryInterface', '\Codexproject\Core\Repository\\'.$storageDriver);
 	}
 }
