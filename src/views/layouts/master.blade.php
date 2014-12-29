@@ -16,6 +16,7 @@
 		<!-- CSS -->
 		<link rel="stylesheet" href="{{ asset('/packages/codexproject/core/css/bootswatch/flatly.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('/packages/codexproject/core/css/prettify/freshcut.css') }}">
+		<link rel="stylesheet" href="{{ asset('/packages/codexproject/core/css/nano.css') }}">
 		<link rel="stylesheet" href="{{ asset('/packages/codexproject/core/css/codex.css') }}">
 	</head>
 	<body>
@@ -32,6 +33,7 @@
 
 		<!-- Javascript -->
 		<script src="{{ asset('/packages/codexproject/core/js/jquery-2.1.1.min.js') }}"></script>
+		<script src="{{ asset('/packages/codexproject/core/js/jquery.nanoscroller.min.js') }}"></script>
 		<script src="{{ asset('/packages/codexproject/core/js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('/packages/codexproject/core/js/prettify/run_prettify.js') }}"></script>
 		<script src="{{ asset('/packages/codexproject/core/js/codex.js') }}"></script>
