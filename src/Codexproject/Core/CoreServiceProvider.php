@@ -28,7 +28,7 @@ class CoreServiceProvider extends ServiceProvider
 
 		// Include the routes file
 		if ($this->app['config']->get('codex::use_routes') === true) {
-			include __DIR__.'../../routes.php';
+			include __DIR__.'/../../routes.php';
 		}
 
 		$this->registerBindings();
