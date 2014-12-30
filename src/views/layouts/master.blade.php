@@ -8,9 +8,9 @@
 		<link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
 
 		@if (isset($currentManual))
-			<title>Codex - {{ $currentManual }} {{ $currentVersion }}</title>
+			<title>{{ Config::get('codex::site_name') }} - {{ $currentManual }} {{ $currentVersion }}</title>
 		@else
-			<title>Codex</title>
+			<title>{{ Config::get('codex::site_name') }}</title>
 		@endif
 
 		<!-- CSS -->

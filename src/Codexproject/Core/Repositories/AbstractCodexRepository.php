@@ -54,7 +54,7 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 		$manuals = $this->getManuals();
 
 		if (count($manuals) > 1) {
-			if ( ! is_null($this->config->get('codex::default_manual'))) {
+			if ($this->config->get('codex::default_manual') != '') {
 				return $this->config->get('codex::default_manual');
 			} else {
 				return strval($manuals[0]);
