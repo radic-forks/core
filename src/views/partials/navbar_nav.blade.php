@@ -1,4 +1,10 @@
 <ul class="nav navbar-nav">
+	<li>
+		<button type="button" class="btn btn-primary navbar-btn" data-toggle="offcanvas">
+			<span class="glyphicon glyphicon-th-list"></span>
+		</button>
+	</li>
+
 	@if (isset($currentManual))
 		@if (count($manuals) > 1)
 			<li class="dropdown">
