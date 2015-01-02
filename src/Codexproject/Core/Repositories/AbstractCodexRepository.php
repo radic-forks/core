@@ -76,15 +76,6 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 	{
 		$versions = $this->getVersions($manual);
 
-		switch ($this->config->get('codex::version_ordering')) {
-			case 'numerical':
-				sort($versions, SORT_NATURAL);
-			break;
-			case 'alphabetically':
-				sort($versions, SORT_NUMERIC);
-			break;
-		}
-
 		return $versions[0];
 	}
 
@@ -95,7 +86,11 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 	 */
 	public function getManuals()
 	{
-		return $this->getDirectories($this->storagePath);
+		$manuals = $this->getDirectories($this->storagePath);
+		
+		sort($manuals);
+
+		return $manuals;
 	}
 
 	/**
@@ -106,9 +101,32 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 	 */
 	public function getVersions($manual)
 	{
+		$alpha     = array();
+		$numeric   = array();
 		$manualDir = $this->storagePath.'/'.$manual;
+		$versions  = $this->getDirectories($manualDir);
 
-		return $this->getDirectories($manualDir);
+		foreach ($versions as $version) {
+			if (ctype_alpha(substr($version, 0, 2))) {
+				$alpha[] = $version;
+			} else {
+				$numeric[] = $version;
+			}
+		}
+
+		sort($alpha);
+		rsort($numeric);
+
+		switch ($this->config->get('codex::version_ordering')) {
+			case 'numeric-first':
+				$versions = array_merge($numeric, $alpha);
+			break;
+			case 'alpha-first':
+				$versions = array_merge($alpha, $numeric);
+			break;
+		}
+
+		return $versions;
 	}
 
 	/**
