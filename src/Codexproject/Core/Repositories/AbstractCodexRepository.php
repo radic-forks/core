@@ -5,6 +5,7 @@ use App;
 use DateTime;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
+use Codexproject\Core\Markdown;
 
 abstract class AbstractCodexRepository implements CodexRepositoryInterface
 {
@@ -164,12 +165,18 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 	 */
 	protected function getPageTitle($page)
 	{
-		$file  = fopen($page, 'r');
-		$title = fgets($file);
+		$meta = Markdown::parseMeta($this->files->get($page));
 
-		fclose($file);
+		if (isset($meta) and isset($meta['title'])) {
+			return "# {$meta['title']}";
+		} else {
+			$file  = fopen($page, 'r');
+			$title = fgets($file);
 
-		return $title;
+			fclose($file);
+
+			return $title;
+		}			
 	}
 
 	/**
