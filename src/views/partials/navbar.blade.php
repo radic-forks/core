@@ -8,7 +8,15 @@
 				<span class="icon-bar"></span>
 			</button>
 
-			<a href="/" class="navbar-brand">{{ Config::get('codex::site_name') }}</a>
+			<span class="navbar-brand">
+				<a href="/">{{ Config::get('codex::site_name') }}</a>
+
+				<div class="pull-right">
+					<button type="button" data-toggle="offcanvas">
+						<span class="glyphicon glyphicon-chevron-left" id="collapse-sidebar-button"></span>
+					</button>
+				</div>
+			</span>
 		</div>
 
 		<div id="navbar" class="collapse navbar-collapse">
